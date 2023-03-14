@@ -1,0 +1,387 @@
+\documentclass[preprint, 3p,
+authoryear]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
+
+\usepackage[hyphens]{url}
+
+  \journal{Elsevier journal} % Sets Journal name
+
+\usepackage{lineno} % add
+
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%% end my additions to header
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Barriers and facilitators of clinical trial participation in neurodegenerative diseases: A systematic review and meta-analysis},
+            colorlinks=false,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+
+\setcounter{secnumdepth}{5}
+% Pandoc toggle for numbering sections (defaults to be off)
+
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+
+
+
+\begin{document}
+
+
+\begin{frontmatter}
+
+  \title{Barriers and facilitators of clinical trial participation in
+neurodegenerative diseases: A systematic review and meta-analysis}
+    \author[Neuro]{Daphne N. Weemering%
+  %
+  }
+  
+    \author[Rehab, Excel]{Anita Beelen%
+  %
+  }
+  
+    \author[Neuro]{Tessa Kliest%
+  %
+  }
+  
+    \author[Neuro]{Lucie A.G. van Leeuwen%
+  %
+  }
+  
+    \author[Neuro]{Leonard H. van den Berg%
+  %
+  }
+  
+    \author[Neuro, Julius]{Ruben P.A. van Eijk%
+  \corref{cor1}%
+  }
+   \ead{r.p.a.vaneijk-2@umcutrecht.nl} 
+      \affiliation[Neuro]{Department of Neurology, UMC Utrecht Brain
+Centre, University Medical Centre Utrecht, Utrecht, the Netherlands.}
+    \affiliation[Rehab]{Department of Rehabilitation, Physical Therapy
+Science \& Sports, UMC Utrecht Brain Centre, University Medical Centre
+Utrecht, the Netherlands}
+    \affiliation[Excel]{Centre of Excellence for Rehabilitation
+Medicine, UMC Utrecht Brain Centre, University Medical Centre Utrecht,
+and De Hoogstraat Rehabilitation, Utrecht, the Netherlands}
+    \affiliation[Julius]{Biostatistics \& Research Support, Julius
+Centre for Health Sciences and Primary Care, University Medical Centre
+Utrecht, Utrecht, the Netherlands}
+    \cortext[cor1]{Corresponding author}
+  
+  \begin{abstract}
+  \textbf{Background}: Study participants in clinical trials for
+  neurodegenerative disorders are selective and underrepresentative for
+  all patients with the disease. This limits generalizability of study
+  results and makes the safety and efficacy of interventions unknown for
+  the majority of patients. In this study, we aim to identify barriers
+  and facilitators for clinical trial participation. These identified
+  factors inform recommendations for the inclusion of the broader
+  population.
+
+  \textbf{Methods}: We conducted a systematic literature search of
+  quantitative and qualitative articles reporting barriers and
+  facilitators of clinical trials for neurodegenerative diseases.
+  Studies evaluating participating in non-interventional research were
+  excluded. Barriers and facilitators were extracted; the frequency with
+  which patients identified barriers/facilitators were pooled across
+  studies and summarized as proportions.
+
+  \textbf{Results}: Thirty-six unique studies were included, enrolling a
+  total of 5113 patients and/or people related to Alzheimer's disease
+  (n=1261), Parkinson's disease (n=2789), Huntington's disease (n=696)
+  or amyotrophic lateral sclerosis (n=367). The most commonly mentioned
+  barriers/facilitators were XXX.
+  \end{abstract}
+    \begin{keyword}
+    Trial participation \sep 
+    neurodegenerative diseases
+  \end{keyword}
+  
+ \end{frontmatter}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Elit sociosqu semper nascetur; magna tellus facilisis potenti inceptos.
+Nibh ut lacinia conubia senectus; fames ullamcorper tempus mattis.
+Eleifend pretium scelerisque fusce a dignissim etiam, class torquent
+imperdiet cursus. Elementum venenatis consequat cubilia, tempus libero
+auctor, habitant, lectus a pharetra. Rutrum penatibus class nisi porta
+dapibus nec ad suspendisse ullamcorper, justo conubia vulputate nibh
+habitant etiam tempor, varius accumsan.
+
+Consectetur urna praesent nam ullamcorper class habitant facilisi taciti
+pharetra imperdiet convallis fames. Faucibus eros porttitor sapien mus
+vehicula mauris, at arcu elementum enim viverra? Neque facilisis taciti
+enim cras libero per nascetur. Ut varius dui euismod blandit luctus
+maecenas class quis lacinia penatibus! Hac integer fames!
+
+Lorem sodales potenti odio cursus blandit, ac venenatis pharetra non
+tortor. Faucibus commodo mus dis augue a. Risus risus natoque primis
+montes aliquam purus fermentum litora potenti! At at platea, facilisis,
+vulputate sociosqu tellus at? Iaculis rhoncus litora, curabitur cras
+netus cursus nam arcu. Penatibus turpis faucibus aliquet donec dui,
+penatibus dictumst, in luctus, nulla sodales -- lectus ornare nascetur
+gravida ante vel sed pretium nostra.
+
+Adipiscing suspendisse torquent maecenas per, class tempus mus vitae
+pharetra fermentum. Imperdiet fusce suspendisse hac turpis, urna in
+penatibus nostra aptent? Conubia lectus justo augue nam enim pretium
+quam quam donec. Hendrerit ante vitae laoreet enim eu lobortis vel
+habitant in. Orci nisl nostra convallis ultrices varius at faucibus
+ornare eget lectus. Curae arcu ante vivamus habitasse nostra;
+condimentum fusce suspendisse urna. Quisque aptent feugiat tristique
+potenti conubia mauris placerat accumsan sodales. Congue sollicitudin
+mauris metus phasellus sollicitudin rhoncus, scelerisque sodales nam!
+
+Amet non sociosqu, condimentum eu -- lacinia nisl facilisis, laoreet
+gravida habitasse phasellus. Enim interdum tellus: euismod et montes
+potenti netus quisque vehicula magnis. Purus facilisis lobortis
+porttitor fames penatibus nascetur leo? Platea litora porta est, cum:
+massa malesuada purus arcu. Aliquam nibh est id nec felis tempor mollis
+himenaeos tristique. Lacinia elementum nisl augue porta ante quis
+hendrerit, dui ornare, mollis, accumsan laoreet tristique nascetur etiam
+egestas nec facilisis.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{search-strategy}{%
+\subsection{Search strategy}\label{search-strategy}}
+
+The aim of the systematic review was to identify all original research
+articles, both qualitative and quantitative, that report on barriers and
+facilitators to participation in clinical trials. Studies were
+identified in the PubMed and EMBASE databases, as well as by screening
+reference lists from relevant reviews. The search was limited to the
+most common neurogenerative diseases: Alzheimer's disease (AD),
+Parkinson's disease (PD), Huntington's disease (HD) and amyotrophic
+lateral sclerosis (ALS) \citep{hou2019, zahra2020}. Search terms
+included ``barriers'', ``facilitators'', ``clinical trials'',
+``participation'', ``Alzheimer's disease'', ``Parkinson's disease'',
+``Huntington's disease'', and ``amyotrophic lateral sclerosis'', and
+their synonyms (\textbf{Supplement 1}). The search was discussed with an
+information specialist and was limited to qualitative and quantitative
+studies written in English and Dutch. The final reference list was
+generated in January 2022.
+
+\hypertarget{study-selection}{%
+\subsection{Study selection}\label{study-selection}}
+
+After removal of duplicates, the reference list was analyzed using
+Automated Systematic Review (ASReview, version v0.17rc0) -- a machine
+learning framework which labels and subsequently ranks titles and
+abstracts based on the relevance of the key terms entered into the
+software \citep{vandeschoot2021}. Relevant key terms were:
+``facilitator'', ``barrier'', ``participate'', ``refusal'',
+``perspective'', ``patient selection'', ``retention'', ``attitude'',
+``recruit'', ``enroll'', ``accrual'', ``attrition'', and ``clinical
+trial''. ``Animal'' and/or ``mouse'' were marked as irrelevant key
+terms.
+
+The first 200 ranked abstracts were screened by two reviewers (TK and
+LAGvL) and were discussed until consensus was reached
+(\textbf{Supplement 2.1}). The following abstract were screened by one
+reviewer (TK). References were eligible for full-text screening if the
+abstract reported facilitators and barriers to participation in clinical
+trials. Full text articles had to meet the following criteria to be
+using in the thematic and/or meta-analysis (\textbf{Supplement 2.2}):
+original research published in a peer reviewed journal, reporting
+barriers and/or facilitators for (a) clinical trial(s) with a drug
+therapy, concerning patients with AD, PD, HD, or ALS. Qualitative
+studies were assessed by using the Critical Appraisal Skills Program
+(CASP- quality assessment tool \citep{casp2018}.
+
+\hypertarget{data-extraction}{%
+\subsection{Data extraction}\label{data-extraction}}
+
+Data on facilitators and barriers were independently extracted from the
+articles by TK and LAGvL with a pre-prepared extraction scheme. The
+first ten articles and the corresponding study extraction schemes were
+discussed in depth and compared between TK and LAGvL. Once consensus was
+reached, data of interest were extracted independently. Studies solely
+reporting demographics, participants at risk of neurodegenerative
+diseases, outcomes represented by \(\leq 5\%\) of the sample size, or
+articles where the patient population with neurodegenerative disease was
+\(\leq 50\%\) of the total sample size (e.g., studies including various
+disease populations) were excluded from the analysis.
+
+All barriers and facilitators for trial participation were reported from
+patients, caregivers and/or health care professionals (HCPs). The
+identified barriers and facilitators were clustered in three overarching
+themes: patient related-, study procedures related- and HCP related
+factors regarding (not) participating. The study procedures related- and
+HCP related factors were considered modifiable -- factors that can be
+applied to and amended before and during clinical trial. The patient
+related factors were appraised as motivators and beliefs -- intrinsic
+factors that cannot be amended during the design phase of a trial to
+improve enrollment. After all barriers and facilitators were collected
+and grouped, TK did a final review to identify whether the created
+themes and subthemes represented the reported barriers and facilitators
+identified in the analyzed articles. Final consensus on the (sub)themes
+was reached during an in-depth meeting with RPAvE, AB, DW and TK.
+
+\hypertarget{statistical-analysis}{%
+\subsection{Statistical analysis}\label{statistical-analysis}}
+
+The quantitative data (i.e., the proportion of patients reporting on
+barriers/facilitators in closed interview questions/surveys) were
+synthesized using meta-analyses to obtain overall effect size estimates
+for each of the modifiable barriers and facilitators. The meta-analyses
+were performed exclusively on patient-reported barriers and
+facilitators.
+
+The proportions for each barrier/facilitator were logit transformed
+prior to pooling. Random intercept logistic regression models were
+fitted, accounting for the binomial structure of the data and to account
+for the between-study heterogeneity \citep{stijnen2010}. Proportions and
+\(95\%\) Clopper-Pearson (i.e., exact binomial confidence interval)
+confidence intervals \citep{clopper1934} are reported for each
+barrier/facilitator. To give a good indication of the variance between
+the studies, the following heterogeneity statistics were provided: the
+between study variance parameter \(\tau^2\), the Q-statistic, and the
+I2- and H2-statistics, the latter two with a \(95\%\) confidence
+interval.
+
+Heterogeneity between studies could be expected due to the different
+disease populations and the different types of responders (i.e.,
+patients, caregivers, HCPs or a combination of these). Therefore,
+subgroup analyses were performed on each barrier/facilitator, with the
+disease populations and the responder type as subgroups. We fitted
+mixed-effects model, assuming the subgroups to be fixed and the studies
+within the subgroups to be random. Cochran's Q \citep{cochran1954} was
+used to determine whether overall differences in effect size were
+significant. We used the \(I^2\) statistic \citep{higgins2002} to
+determine between study heterogeneity. P-values are reported with
+decimals -- values smaller or around 0.05 are considered statistically
+significant. All quantitative analyses are performed in R (version 4.2.1
+(2022-06-23)) \citep{Rmanual} with the `meta' package \citep{meta}.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+In total, 560 abstracts were reviewed (AD: n = 206, PD: n = 177, HD: n =
+69, ALS: n = 108), resulting in the inclusion of 85 abstracts (AD: n =
+61, PD: n = 15, HD: n = 4, ALS: n = 5) for full text scrutinization. A
+Cohen's kappa of 0.86 was established between the reviewers, indicating
+an almost perfect agreement for abstract review of 200 articles. Of the
+85 full text articles, 49 articles were excluded based on the following
+reasons: the article did not include participants with a diagnosis
+(e.g., people at risk or health elderly (n = 23)), did not assess
+barriers or facilitators for participation in drug therapy clinical
+trials (n = 23), and were not an original research article (n = 3; see
+\textbf{figure 1} for the study selection flow diagram). Thus, we
+included 36 full text articles (AD: n = 17, PD: n = 12, HD: n = 4, ALS:
+n = 2, PD \(+\) ALS: n = 1) for the final data extraction. No
+qualitative studies were excluded based on the results of the CASP
+(\textbf{Supplement 3}).
+
+\hypertarget{study-characteristics}{%
+\subsection{Study characteristics}\label{study-characteristics}}
+
+\textbf{Table 1} shows the main characteristics of the included studies.
+Two articles {[}\textbf{REFS}{]} included both qualitative and
+quantitative study methods; one article {[}\textbf{REF}{]} included two
+different qualitative methods and one article {[}\textbf{REF}{]}
+included both people with PD and ALS. All methods and patient
+populations were separately analyzed and reported. Finally, the review
+resulted in the inclusion of 25 quantitative studies (survey/structured
+interview: n = 4582) and 15 qualitative studies (open-ended
+questions/focus groups/semi-structured interviews: n = 531). Of the
+included studies, 19 (48\%) focuses on AD, 14 (35\%) on PD, 4 (10\%) on
+HD, and 3 (8\%) on ALS. Per disease, data was collected of 1261 people
+with AD, 2789 people with PD, 696 people with HD, and 367 people with
+ALS. Thus, a total of 5113 people with/related to neurodegenerative
+diseases were included.
+
+Of the included studies, 65\% was conducted in the United States (US).
+The remainder of the studies was conducted in Sweden (8\%), Australia
+(5\%), Finland (5\%), and the United Kingdom (UK), Israel, Europe
+(several countries), Singapore, US together with UK, and Canada (the
+latter countries all occurred once). The focus of the studies also
+varied in terms of perspective and data collection method. 19 studies
+(48\%) focused solely on the perspective of the patient. 8 studies
+(20\%) included the perspective of both patients and caregivers, the
+perspective of the caregivers was incorporated in 7 studies (18\%), 4
+studies (10\%) included patients, caregivers, and healthcare
+professionals, and 2 studies (5\%) investigated healthcare
+professionals' perspectives on factors influencing trial participation.
+Regarding the data collection method, 24 studies (60\%) used a survey,
+11 studies (28\%) collected data using semi-structured interviews, 2
+studies (5\%) used open-ended question, 2 other studies conducted focus
+groups, and 1 study (3\%) used a structured interview to collect data.
+
+\hypertarget{thematic-analysis-of-qualitative-data}{%
+\subsection{Thematic analysis of qualitative
+data}\label{thematic-analysis-of-qualitative-data}}
+
+Several themes and subthemes corresponding to barriers, facilitators,
+motivators, and beliefs for trial participation were identified in the
+studies. These (sub)themes are displayed in \textbf{figure 2}.
+
+\hypertarget{meta-analyses-of-quantitative-data}{%
+\subsection{Meta-analyses of quantitative
+data}\label{meta-analyses-of-quantitative-data}}
+
+The meta-analyses of the proportional data are displayed in
+\textbf{figure 3}. The primary barrier/facilitator for engaging in
+clinical trials under patients with a neurodegenerative disease, was
+awareness (\(N_{studies}\) = 1, estimate (95\% CI) = 78.5\% (75.6 to
+81.2)). Second and third ranked barriers/motivators for trial
+participation were the relationship with clinical staff (\(N_{studies}\)
+= 6, estimate (95\% CI) = 75.0\% (58.8 to 86.3)) and placebo/sham use
+(\(N_{studies}\) = 5, estimate (95\% CI) = 71.2 (21.3 to 95.8)).
+
+Due to synthesizing data of different diseases and different types of
+responders, between-study heterogeneity was expected a priori, and was
+found for each barrier/facilitator. The heterogeneity statistics are
+reported in \textbf{table 2}. The Q-statistics were significantly
+different from zero (\(p < 0.001\)), the \(I^2\) statistics also mark
+substantial heterogeneity (\textgreater90\%).
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\renewcommand\refname{References}
+\bibliography{mybibfile.bib}
+
+
+\end{document}

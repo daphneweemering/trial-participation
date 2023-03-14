@@ -1,0 +1,7 @@
+---
+title: "Barriers and facilitators of clinical trial participation in neurodegenerative diseases: A systematic review and meta-analysis"
+output: pdf_document
+date: "`r Sys.Date()`"
+---
+
+
