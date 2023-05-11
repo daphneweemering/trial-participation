@@ -1,55 +1,42 @@
-setwd('/Users/daphneweemering/surfdrive/B&F CT participation/meta-analysis')
+setwd('/Users/daphneweemering/surfdrive/trial participation/meta-analysis')
 
 library(readxl)
-library(meta)
+library(metafor)
 library(tidyverse)
 library(dplyr)
-library(ggplot2)
-library(grid)
-library(gridExtra)
+
 
 dat <- read_excel('datafile_meta.xlsx')
 
-#### DATA PREP ####
-datalist <- list()
-fclttrs <- list('Side effects', 'Invasiveness', 'Placebo/sham use', 'Visiting scheme',
-                  'Time consumption', 'Assessment burden', 'Travel burden', 
-                  'Financial compensation', 'Awareness', 'HCP recommendation', 
-                  'Information provided', 'Relationship with clinical staff', 
-                  'Clinic reputation')
+fclttrs <- list('Assessment burden', 'Awareness', 'Clinic reputation', 
+                'Disruption in current medication', 'Financial compensation',
+                'HCP recommendation', 'Home-based assessments', 'Information provided',
+                'Invasiveness', 'Placebo/sham use', 'Relationship with clinical staff',
+                'Side effects', 'Time consumption', 'Travel burden', 'Visiting scheme')
 
 for (i in 1:length(fclttrs)){
-  datalist[[i]] <- subset(dat, dat$Facilitator == fclttrs[[i]] & dat$Type == 'P')
+  datalist[[i]] <- subset(dat, dat$Facilitator == fclttrs[[i]])
 }
+
 
 
 #### ANALYSIS ####
 # overall meta-analyses
-store <- matrix(data = NA, nrow = 13, ncol = 16)
-colnames(store) <- c('TE', 'LB', 'UB', 'k', 'events', 'total', 'facilitator', 
-                     'tau2', 'H', 'H_lower', 'H_upper', 'I2', 'I2_lower', 
-                     'I2_upper', 'Q', 'Q_pval')
+store <- matrix(data = NA, nrow = 15, ncol = 7)
+colnames(store) <- c('TE', 'LB', 'UB', 'k', 'events', 'total', 'facilitator')
 
 for(i in 1:length(datalist)){
-  m <- metaprop(event = n_respond, n = n_total, studlab = Disease, data = datalist[[i]],
-                method = 'GLMM', sm = 'PLOGIT', random = T, hakn = F)
+  m <- rma.glmm(xi = n_respond, ni = n_total, data = datalist[[i]], measure = 'PLO')
   
-  store[i, 1] <- meta:::backtransf(m$TE.random, sm = 'PLOGIT')*100
-  store[i, 2] <- meta:::backtransf(m$lower.random, sm = 'PLOGIT')*100
-  store[i, 3] <- meta:::backtransf(m$upper.random, sm = 'PLOGIT')*100
-  store[i, 4] <- m$k 
-  store[i, 5] <- sum(m$event)
-  store[i, 6] <- sum(m$n)
+  # main outcomes
+  mb <- predict(m, transf = transf.ilogit, digits = 4)
+  store[i, 1] <- mb$pred*100
+  store[i, 2] <- mb$ci.lb*100
+  store[i, 3] <- mb$ci.ub*100
+  store[i, 4] <- m$k
+  store[i, 5] <- sum(datalist[[i]]$n_respond)
+  store[i, 6] <- sum(m$ni)
   store[i, 7] <- datalist[[i]]$Facilitator[[1]]
-  store[i, 8] <- m$tau2
-  store[i, 9] <- m$H
-  store[i, 10] <- m$lower.H
-  store[i, 11] <- m$upper.H
-  store[i, 12] <- m$I2
-  store[i, 13] <- m$lower.I2
-  store[i, 14] <- m$upper.I2
-  store[i, 15] <- m$Q.LRT
-  store[i, 16] <- round(as.numeric(m$pval.Q.LRT), 6)
   datalist[[i]]$sep_prop <- (datalist[[i]]$n_respond/datalist[[i]]$n_total)*100
   
 }
@@ -57,14 +44,8 @@ for(i in 1:length(datalist)){
 datalist <- datalist[order(store[, 'TE'])]
 store <- store[order(store[, 'TE'], decreasing = F),]
 
-
-# meta regression
-
-
-
-
 #### FIGURE ####
-pdf(file = '/Users/daphneweemering/surfdrive/B&F CT participation/tables + figures/figure1.pdf', 
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/tables + figures/figure1.pdf', 
     width = 11.7, height = 7)
 
 par(mar = c(4.5, 34, 3, 1), tck = -0.01, xpd = T)
@@ -85,23 +66,18 @@ for (i in 1:length(datalist)){
   text(x = -85, y = i+0.1, store[i,'k'], cex = 1)
   text(x = -60, y = i+0.1, paste(store[i, 'events'], '/', store[i, 'total']), cex = 1)
   text(x = -25, y = i+0.1, paste(round(as.numeric(store[i, 'TE']), 2), ' (', 
-                             round(as.numeric(store[i, 'LB']), 2), '-', 
-                             round(as.numeric(store[i, 'UB']), 2), ')'), cex = 1)
+                                 round(as.numeric(store[i, 'LB']), 2), '-', 
+                                 round(as.numeric(store[i, 'UB']), 2), ')'), cex = 1)
 }
 
-text(x = -153, y = 13.8, 'Barrier/facilitator', cex = 1, adj = c(0,0.5), font = 2)
-text(x = -85, y = 14.3, '# of pooled', cex = 1, font = 2)
-text(x = -85, y = 13.8, 'studies', cex = 1, font = 2)
-text(x = -60, y = 13.8, 'Incidence', cex = 1, font = 2)
-text(x = -25, y = 13.8, 'Percentage (95% CI)', cex = 1, font = 2)
+text(x = -153, y = 16, 'Barrier/facilitator', cex = 1, adj = c(0,0.5), font = 2)
+text(x = -85, y = 16.5, '# of pooled', cex = 1, font = 2)
+text(x = -85, y = 16, 'studies', cex = 1, font = 2)
+text(x = -60, y = 16, 'Incidence', cex = 1, font = 2)
+text(x = -25, y = 16, 'Percentage (95% CI)', cex = 1, font = 2)
 
 
 dev.off()
-
-
-
-
-
 
 
 
