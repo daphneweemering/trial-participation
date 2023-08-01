@@ -99,7 +99,7 @@ for (i in 1:length(datalist)){
   
 }
 
-text(x = -153, y = 16, 'Barrier/facilitator', cex = 1, adj = c(0,0.5), font = 2)
+text(x = -153, y = 16, 'Enabler', cex = 1, adj = c(0,0.5), font = 2)
 text(x = -85, y = 16.5, '# of pooled', cex = 1, font = 2)
 text(x = -85, y = 16, 'studies', cex = 1, font = 2)
 text(x = -60, y = 16.5, 'Response', cex = 1, font = 2)
