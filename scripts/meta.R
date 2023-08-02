@@ -73,32 +73,33 @@ datalist <- datalist[order(store[, 'TE'])]
 store <- store[order(store[, 'TE'], decreasing = F),]
 
 #### FIGURE ####
-pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure1.pdf', 
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure3.pdf', 
     width = 11.7, height = 7)
 
 par(mar = c(4.5, 34, 3, 1), tck = -0.01, xpd = T)
 plot(as.numeric(store[, 'TE']), 1:nrow(store), pch = 22, cex = 1.1, frame.plot = F, 
-     axes = F, ylab = '', xlab = 'Percentage of pooled responses',
-     cex.lab = 0.8, xlim = c(0, 100), col = 'grey16', bg = 'grey16')
+     axes = F, ylab = '', xlab = 'Percentage of pooled responses', xlim = c(0, 100), 
+     col = 'grey16', bg = 'grey16')
 segments(x0 = as.numeric(store[, 'UB']), y0 = 1:nrow(store), 
          x1 = as.numeric(store[, 'LB']), y1 = 1:nrow(store))
-axis(1, cex.axis = 0.8)
+axis(1, cex.axis = 1)
 for(i in 1:length(datalist)){
   points(datalist[[i]]$sep_prop, rep(i, times = nrow(datalist[[i]])), pch = 22, 
          col = 'grey', bg = 'grey88', cex = 0.7)
 }
 
-# text 
+# estimates
 for (i in 1:length(datalist)){
   text(x = -153, y = i+0.1, datalist[[i]]$Facilitator[1], cex = 1, adj = c(0,0.5))
   text(x = -85, y = i+0.1, store[i,'k'], cex = 1)
   text(x = -60, y = i+0.1, paste0(store[i, 'events'], '/', store[i, 'total']), cex = 1)
-  text(x = -25, y = i+0.1, paste0(round(as.numeric(store[i, 'TE']), 2), ' (',
-                                  format(round(as.numeric(store[i, 'LB']), 2), nsmall = 2), '-',
-                                  round(as.numeric(store[i, 'UB']), 2), ')'), cex = 1)
+  text(x = -25, y = i+0.1, paste0(format(round(as.numeric(store[i, 'TE']), 1), nsmall = 1), ' (',
+                                  format(round(as.numeric(store[i, 'LB']), 1), nsmall = 1), '-',
+                                  format(round(as.numeric(store[i, 'UB']), 1), nsmall = 1), ')'), cex = 1)
   
 }
 
+# headers
 text(x = -153, y = 16, 'Enabler', cex = 1, adj = c(0,0.5), font = 2)
 text(x = -85, y = 16.5, '# of pooled', cex = 1, font = 2)
 text(x = -85, y = 16, 'studies', cex = 1, font = 2)
