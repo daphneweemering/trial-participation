@@ -93,9 +93,9 @@ for (i in 1:length(datalist)){
   text(x = -153, y = i+0.1, datalist[[i]]$Facilitator[1], cex = 1, adj = c(0,0.5))
   text(x = -85, y = i+0.1, store[i,'k'], cex = 1)
   text(x = -60, y = i+0.1, paste0(store[i, 'events'], '/', store[i, 'total']), cex = 1)
-  text(x = -25, y = i+0.1, paste0(format(round(as.numeric(store[i, 'TE']), 1), nsmall = 1), ' (',
-                                  format(round(as.numeric(store[i, 'LB']), 1), nsmall = 1), '-',
-                                  format(round(as.numeric(store[i, 'UB']), 1), nsmall = 1), ')'), cex = 1)
+  text(x = -25, y = i+0.1, paste0(format(round(as.numeric(store[i, 'TE']), 2), nsmall = 2), ' (',
+                                  format(round(as.numeric(store[i, 'LB']), 2), nsmall = 2), '-',
+                                  format(round(as.numeric(store[i, 'UB']), 2), nsmall = 2), ')'), cex = 1)
   
 }
 
