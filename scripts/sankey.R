@@ -29,7 +29,6 @@ for (i in 1:length(factors)){
   
 }
 
-
 # 4. Plot
 p1 <- datalist[[1]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
