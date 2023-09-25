@@ -1,68 +1,130 @@
-#### Barriers and facilitators of clinical trial participation in neurodegenerative
-#### diseases: a systematic review and meta-analyses.
-
-# 1. libraries
 library(readxl)
+library(zoo)
+library(tidyverse)
 library(ggsankey)
-library(dplyr)
-library(ggplot2)
-library(viridis)
 library(cowplot)
 
-# 2. data
-setwd('//Users/daphneweemering/surfdrive/trial participation/trial-participation/data')
-d <- read_excel('flowchart.xlsx')
+setwd('/Users/daphneweemering/surfdrive/trial participation/review')
+d <- read_excel('code tree.xlsx')
 
-# 3. prepare data
+# new data frame for plotting
+sankey <- data.frame(factor = rep(c('Patient-related factors', 
+                                    'Study-related factors', 
+                                    'HCP-related factors'), times = c(13, 13, 5)),
+                     theme = na.locf(d$Themes),
+                     subtheme = d$Subthemes, 
+                     frequency = NA)
+
+# organize data to count occurrence
+d1 <- d[, -1]
+d1$Themes <- ifelse(is.na(d1$Subthemes) == T, d1$Themes, d1$Subthemes)
+d1 <- d1[, -2]
+
+for (i in 1:nrow(d1)){
+  sankey[i, 4] <- sum(is.na(d1[i, ]) == F) - 1
+}
+
+# prepare data
 factors <- list('Patient-related factors', 'Study-related factors', 
                 'HCP-related factors')
 
-datalist <- list()
+dl <- list()
+dl2 <- list()
+nms <- list()
 
 for (i in 1:length(factors)){
-  datalist[[i]] <- subset(d, d$factor == factors[[i]])
+  dl[[i]] <- subset(sankey, sankey$factor == factors[[i]])
+  dl[[i]] <- dl[[i]][order(dl[[i]]$frequency, dl[[i]]$theme, decreasing = T), ]
   
-  datalist[[i]] <- datalist[[i]] %>%
-    make_long(factor, theme, subtheme, value = frequency)
+  dl[[i]]$theme2 <- LETTERS[as.numeric(factor(dl[[i]]$theme,
+                                                    levels = unique(dl[[i]]$theme)))]
   
-  datalist[[i]] <- subset(datalist[[i]], is.na(datalist[[i]]$node) == F)
-  
+  if (i == 1) {
+    dl[[i]]$subtheme2 <- ifelse(is.na(dl[[i]]$subtheme) == F, LETTERS[14:(nrow(dl[[i]]))], NA)
+  } else if (i == 2) {
+    dl[[i]] <- dl[[i]][order(dl[[i]]$theme2), ]
+    dl[[i]]$subtheme2 <- ifelse(is.na(dl[[i]]$subtheme) == F, LETTERS[4:(nrow(dl[[i]]) + 4)], NA)
+  }
+
+  dl2[[i]] <- dl[[i]]
+
+  if (i == 1 | i == 2) {
+    dl2[[i]] <- dl[[i]] %>%
+      make_long(factor, theme2, subtheme2, value = frequency)
+  } else if (i == 3) {
+    dl2[[i]] <- dl[[i]] %>%
+      make_long(factor, theme2, subtheme, value = frequency)
+  }
+
+  dl2[[i]] <- subset(dl2[[i]], is.na(dl2[[i]]$node) == F)
+ 
 }
 
-# 4. Plot
-p1 <- datalist[[1]] %>%
+# make figures
+for (i in 1:length(factors)){
+  if (i == 1 | i == 2) {
+    nms[[i]] <- as.data.frame(cbind(c(dl[[i]]$theme2, na.omit(dl[[i]]$subtheme2)), 
+                                    c(dl[[i]]$theme, na.omit(dl[[i]]$subtheme))))
+  } else if (i == 3) {
+    nms[[i]] <- as.data.frame(cbind(dl[[i]]$theme2, dl[[i]]$theme)) 
+  }
+  
+  dl2[[i]]$lab <- ifelse(dl2[[i]]$node == factors[[i]], factors[[i]], 
+                         nms[[i]]$V2[match(dl2[[i]]$node, nms[[i]]$V1)])
+  
+} 
+
+pltt1 <- c("#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#106aba",
+           "#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#106aba",
+           "#3daaf0", "#3daaf0", "#001d76")
+
+pltt2 <- c("#106aba", "#106aba", "#106aba", "#3daaf0", "#3daaf0", "#3daaf0",
+           "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0",
+           "#3daaf0", "#3daaf0", "#3daaf0", "#001d76")
+
+pltt3 <- c("#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#001d76")
+
+
+p1 <- dl2[[1]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
-             fill = factor(node), value = value, label = node)) +
+             fill = node, value = value, label = lab)) +
   geom_sankey(flow.alpha = 0.5, node.color = NA, show.legend = F, space = 5,
               width = 0.08, smooth = 12) +
-  scale_fill_viridis_d(option = "C", alpha = 0.8) +
   geom_sankey_text(size = 12, color = "black", hjust = 0, 
                    position = position_nudge(x = 0.05), space = 5) +
-  theme_void() 
+  scale_fill_manual(values = pltt1) +  
+  theme_void() +
+  geom_text(aes(label =paste('n =', sum(sankey$frequency[sankey$factor == 'Patient-related factors'])), 
+                x = 1.12, y = -9), size = 12, nudge_x = 0.05, alpha = 0.08)
 
-p2 <- datalist[[2]] %>%
+
+p2 <- dl2[[2]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
-             fill = factor(node), value = value, label = node)) +
+             fill = node, value = value, label = lab)) +
   geom_sankey(flow.alpha = 0.5, node.color = NA, show.legend = F, space = 5,
               width = 0.08, smooth = 12) +
-  scale_fill_viridis_d(option = "C", alpha = 0.8) +
   geom_sankey_text(size = 12, color = "black", hjust = 0, 
                    position = position_nudge(x = 0.05), space = 5) +
-  theme_void() 
+  scale_fill_manual(values = pltt2) +  
+  theme_void() + 
+  geom_text(aes(label = paste('n =', sum(sankey$frequency[sankey$factor == 'Study-related factors'])), 
+                x = 1.12, y = -7), size = 12, nudge_x = 0.05, alpha = 0.05)
 
-p3 <- datalist[[3]] %>%
+p3 <- dl2[[3]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
-             fill = factor(node), value = value, label = node)) +
+             fill = node, value = value, label = lab)) +
   geom_sankey(flow.alpha = 0.5, node.color = NA, show.legend = F, space = 5,
               width = 0.08, smooth = 12) +
-  scale_fill_viridis_d(option = "C", alpha = 0.8) +
   geom_sankey_text(size = 12, color = "black", hjust = 0, 
                    position = position_nudge(x = 0.05), space = 5) +
-  theme_void() 
+  scale_fill_manual(values = pltt3) +  
+  theme_void() +
+  geom_text(aes(label = paste('n =', sum(sankey$frequency[sankey$factor == 'HCP-related factors'])), 
+                x = 1.115, y = -5), size = 12, nudge_x = 0.05, alpha = 0.18)
 
 
-pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure2.pdf',
-    height = 57.5, width = 38.41)
+pdf(file = '/Users/daphneweemering/Desktop/test.pdf',
+    height = 57.5, width = 40.5)
 
 ggdraw() +
   draw_plot(p3, x = -0.182, y = 0, height = 0.25, width = 0.761) +
@@ -73,4 +135,13 @@ ggdraw() +
 dev.off()
 
 
- 
+################################################################################
+########## TO DO ###############################################################
+################################################################################
+# - Add sample sizes (at least for the first columns to the left);
+# - Adjust so that the text of the HCP-related factors does not fall off. 
+
+
+
+
+

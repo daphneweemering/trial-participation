@@ -73,7 +73,7 @@ datalist <- datalist[order(store[, 'TE'])]
 store <- store[order(store[, 'TE'], decreasing = F),]
 
 #### FIGURE ####
-pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/test.pdf', 
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure3.pdf', 
     width = 11.7, height = 7)
 
 par(mar = c(4.5, 34, 3, 1), tck = -0.01, xpd = T)
@@ -109,10 +109,6 @@ text(x = -25, y = 16, 'Percentage (95% CI)', cex = 1, font = 2)
 
 
 dev.off()
-
-
-
-
 
 
 
