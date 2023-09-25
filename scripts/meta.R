@@ -5,7 +5,7 @@ library(metafor)
 library(tidyverse)
 library(dplyr)
 
-dat <- read_excel('meta2.xlsx')
+dat <- read_excel('meta.xlsx')
 
 fclttrs <- list('Assessment burden', 'Awareness', 'Clinic reputation', 
                 'Disruption in current medication', 'Financial compensation',
