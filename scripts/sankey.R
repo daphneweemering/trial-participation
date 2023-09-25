@@ -123,7 +123,7 @@ p3 <- dl2[[3]] %>%
                 x = 1.115, y = -5), size = 12, nudge_x = 0.05, alpha = 0.18)
 
 
-pdf(file = '/Users/daphneweemering/Desktop/test.pdf',
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure2.pdf',
     height = 57.5, width = 40.5)
 
 ggdraw() +
