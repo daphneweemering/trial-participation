@@ -17,8 +17,10 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 | Figures    | Holds the figures that are created.                                                          |
 | Review     | Contains all the files related to the systematic review and coding process.                  |
 
+
 # Machine and package information
-`─ Session info ─────────────────────────────────────────────────────────────────────────────────────────────
+```
+─ Session info ────────────────────────────────────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.2.1 (2022-06-23)
  os       macOS 14.0
@@ -31,8 +33,8 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
  date     2023-09-28
  rstudio  2023.06.2+561 Mountain Hydrangea (desktop)
  pandoc   NA
-
-─ Packages ─────────────────────────────────────────────────────────────────────────────────────────────────
+ 
+ ─ Packages ─────────────────────────────────────────────────────────────────────────────────────────────────
  package     * version    date (UTC) lib source
  boot          1.3-28.1   2022-11-22 [1] CRAN (R 4.2.0)
  cellranger    1.1.0      2016-07-27 [1] CRAN (R 4.2.0)
@@ -89,7 +91,8 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
  withr         2.5.0      2022-03-03 [1] CRAN (R 4.2.0)
  zoo         * 1.8-12     2023-04-13 [1] CRAN (R 4.2.0)
 
- [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library`
+ [1] /Library/Frameworks/R.framework/Versions/4.2/Resources/library
+```
  
 # Access and permissions
 The creation and maintenance of this research repository are the responsibilities of the author. This archive is completely open access, and can be accessed for an indefinite period.
