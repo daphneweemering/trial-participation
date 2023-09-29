@@ -11,7 +11,7 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 # What is in the repository? #
 | Folder     | Content |
 |:-----------|:-----------------------------------------------------------------------|
-| manuscript | Contains the manuscript `TP.pdf` (working in progress; to be added).                        |
+| manuscript | Contains the manuscript `TP.pdf` (to be added).                        |
 | data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                   |
 | scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                |
 | figures    | Holds the figures that are created.                                                         |
