@@ -11,11 +11,11 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 # What is in the repository? #
 | Folder     | Content |
 |:-----------|:-----------------------------------------------------------------------|
-| manuscript | Contains the manuscript `TP.pdf`.                                                            |
-| data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                    |
-| scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                      |
-| figures    | Holds the figures that are created.                                                          |
-| review     | Contains all the files related to the systematic review and coding process. `code tree` contains all the emerged enablers (themes) and the quotes related to that enabler. `thematic analysis` the coding process.                             |
+| manuscript | Contains the manuscript `TP.pdf` (working in progress; to be added).                        |
+| data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                   |
+| scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                |
+| figures    | Holds the figures that are created.                                                         |
+| review     | Contains all the files related to the systematic review and coding process. `code tree.xlsx` contains all the emerged enablers (themes) and the quotes related to that enabler. `thematic analysis.xlsx` the coding process.                                                                                        |
 
 
 # Machine and package information
@@ -100,7 +100,7 @@ The creation and maintenance of this research repository are the responsibilitie
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. 
 
 # Contact 
-For questions, suggestions, or anything else related to the article or the archive, feel free to contact me (d.n.weemering@umcutrecht.nl) or Ruben van Eijk (r.p.a.vaneijk-2@umcutrecht.nl). 
+To be added. 
 
 
 
