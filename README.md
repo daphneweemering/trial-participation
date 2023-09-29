@@ -11,11 +11,11 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 # What is in the repository? #
 | Folder     | Content |
 |:-----------|:-----------------------------------------------------------------------|
-| Manuscript | Contains the manuscript `TP.pdf`.                                                            |
-| Data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                    |
-| Scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                      |
-| Figures    | Holds the figures that are created.                                                          |
-| Review     | Contains all the files related to the systematic review and coding process.                  |
+| manuscript | Contains the manuscript `TP.pdf`.                                                            |
+| data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                    |
+| scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                      |
+| figures    | Holds the figures that are created.                                                          |
+| review     | Contains all the files related to the systematic review and coding process. `code tree` contains all the emerged enablers (themes) and the quotes related to that enabler. `thematic analysis` the coding process.                             |
 
 
 # Machine and package information
