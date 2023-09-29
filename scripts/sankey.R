@@ -4,7 +4,7 @@ library(tidyverse)
 library(ggsankey)
 library(cowplot)
 
-setwd('/Users/daphneweemering/surfdrive/trial participation/review')
+setwd('/Users/daphneweemering/surfdrive/trial participation/trial-participation/data')
 d <- read_excel('code tree.xlsx')
 
 # new data frame for plotting
