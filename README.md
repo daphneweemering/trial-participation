@@ -97,8 +97,6 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 # Access and permissions
 The creation and maintenance of this research repository are the responsibilities of the author. This archive is completely open access, and can be accessed for an indefinite period.
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. 
-
 # Contact 
 To be added. 
 
