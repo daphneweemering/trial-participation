@@ -23,10 +23,11 @@ for (i in 1:length(fclttrs)){
 
 #### ANALYSIS ####
 # overall meta-analyses
-store <- matrix(data = NA, nrow = length(datalist), ncol = 23)
+store <- matrix(data = NA, nrow = length(datalist), ncol = 25)
 colnames(store) <- c('TE', 'LB', 'UB', 'k', 'events', 'total', 'facilitator', 'I2',
                      'H2', 'tau2', 'Q_LRT', 'Qp_LRT','TE_m0', 'TE_m1', 'OR', 'ORp',
-                     'nAD_LB', 'nAD_UB', 'OR_LB', 'OR_UB', 'AD_LB', 'AD_UB', 'I2_mod')
+                     'nAD_LB', 'nAD_UB', 'OR_LB', 'OR_UB', 'AD_LB', 'AD_UB', 'I2_mod',
+                     'Q_LRT_mod', 'Qp_LRT_mod')
 
 for(i in 1:length(datalist)){
   m <- rma.glmm(xi = N, ni = TOTAL, data = datalist[[i]], measure = 'PLO')
@@ -66,6 +67,8 @@ for(i in 1:length(datalist)){
     store[i, 21] <- plogis(predicted$ci.lb[[1]])*100
     store[i, 22] <- plogis(predicted$ci.ub[[1]])*100
     store[i, 23] <- mmod$I2
+    store[i, 24] <- mmod$QE.LRT
+    store[i, 25] <- mmod$QEp.LRT
   }
   
 }
