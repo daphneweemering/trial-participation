@@ -85,7 +85,7 @@ store <- store[order(store[, 'PERC'], decreasing = F), ]
 
 
 #### FIGURE ####
-pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure3.pdf', 
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure4.pdf', 
     width = 11.7, height = 7)
 
 par(mar = c(4.5, 34, 3, 1), tck = -0.01, xpd = T)

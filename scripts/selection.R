@@ -12,11 +12,11 @@ generate_data <- function(size, prob_x, prob_y) {
 dl <- list(
   generate_data(500, prob_x = c(0.8/3, 2/3, 1/3)),
   generate_data(150, prob_x = c(1/6, 1/6, 1/6)),
-  generate_data(35, prob_x = c(1.4/6, 1.3/6, 0.2/6))
+  generate_data(50, prob_x = c(1.6/6, 1/6, 0.2/6))
 )
 
 # make figure
-pdf(file = "/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure4.pdf", height = 5, width = 7)
+pdf(file = "/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure5.pdf", height = 5, width = 7)
 
 # population
 par(mar = c(0, 0.5, 1, 0), mfrow = c(2, 4), fig = c(0, 1/3, 0.2, 1), new = F)

@@ -3,6 +3,7 @@ library(zoo)
 library(tidyverse)
 library(ggsankey)
 library(cowplot)
+library(ggpubr)
 
 setwd('/Users/daphneweemering/surfdrive/trial participation/trial-participation/data')
 d <- read_excel('code tree.xlsx')
@@ -35,11 +36,11 @@ nms <- list()
 for (i in 1:length(factors)){
   # subset into patient-, study, and HCP-related sets
   dl[[i]] <- subset(sankey, sankey$factor == factors[[i]])
-
+  
   # order values and assign letters to get the right ordering 
   dl[[i]] <- dl[[i]][order(dl[[i]]$frequency, dl[[i]]$theme, decreasing = T), ]
   dl[[i]]$theme2 <- LETTERS[as.numeric(factor(dl[[i]]$theme,
-                                                    levels = unique(dl[[i]]$theme)))]
+                                              levels = unique(dl[[i]]$theme)))]
   
   if (i == 1) {
     dl[[i]]$subtheme2 <- ifelse(is.na(dl[[i]]$subtheme) == F, LETTERS[14:(nrow(dl[[i]]))], NA)
@@ -47,9 +48,9 @@ for (i in 1:length(factors)){
     dl[[i]] <- dl[[i]][order(dl[[i]]$theme2), ]
     dl[[i]]$subtheme2 <- ifelse(is.na(dl[[i]]$subtheme) == F, LETTERS[4:(nrow(dl[[i]]) + 4)], NA)
   }
-
+  
   dl2[[i]] <- dl[[i]]
-
+  
   # change to long format
   if (i == 1 | i == 2) {
     dl2[[i]] <- dl[[i]] %>%
@@ -58,9 +59,9 @@ for (i in 1:length(factors)){
     dl2[[i]] <- dl[[i]] %>%
       make_long(factor, theme2, subtheme, value = frequency)
   }
-
+  
   dl2[[i]] <- subset(dl2[[i]], is.na(dl2[[i]]$node) == F)
- 
+  
 }
 
 # make figures
@@ -99,7 +100,7 @@ p1 <- dl2[[1]] %>%
   scale_fill_manual(values = pltt1) +  
   theme_void() +
   geom_text(aes(label =paste('n =', sum(sankey$frequency[sankey$factor == 'Patient-related factors'])), 
-                x = 1.12, y = -9), size = 12, nudge_x = 0.05, alpha = 0.08)
+                x = 1.12, y = -11.3), size = 12, nudge_x = 0.05, alpha = 0.08)
 
 p2 <- dl2[[2]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
@@ -111,7 +112,7 @@ p2 <- dl2[[2]] %>%
   scale_fill_manual(values = pltt2) +  
   theme_void() + 
   geom_text(aes(label = paste('n =', sum(sankey$frequency[sankey$factor == 'Study-related factors'])), 
-                x = 1.12, y = -7), size = 12, nudge_x = 0.05, alpha = 0.05)
+                x = 1.12, y = -8.3), size = 12, nudge_x = 0.05, alpha = 0.05)
 
 p3 <- dl2[[3]] %>%
   ggplot(aes(x = x, next_x = next_x, node = node, next_node = next_node,
@@ -123,17 +124,25 @@ p3 <- dl2[[3]] %>%
   scale_fill_manual(values = pltt3) +  
   theme_void() +
   geom_text(aes(label = paste('n =', sum(sankey$frequency[sankey$factor == 'HCP-related factors'])), 
-                x = 1.115, y = -5), size = 12, nudge_x = 0.05, alpha = 0.18)
-
+                x = 1.115, y = -7.5), size = 12, nudge_x = 0.05, alpha = 0.18)
 
 pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure2.pdf',
-    height = 57.5, width = 40.5)
+    height = 20, width = 35)
 
 ggdraw() +
-  draw_plot(p3, x = -0.182, y = 0, height = 0.25, width = 0.761) +
-  draw_plot(p2, x = -0.18, y = 0.23, height = 0.4, width = 1.1) +
-  draw_plot(p1, x = -0.18, y = 0.60, height = 0.4, width = 1.1) 
+  draw_plot(p1, x = -0.18, y = 0.08, height = 0.9, width = 1.1) 
 
 dev.off()
 
+
+pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure3.pdf',
+    height = 26, width = 41)
+
+ggdraw() +
+  draw_plot(p3, x = -0.182, y = 0.02, height = 0.3, width = 0.761) +
+  draw_plot(p2, x = -0.18, y = 0.32, height = 0.7, width = 1.1) +
+  draw_text("A", x = 0.02, y = 0.95, size = 40) +
+  draw_text("B", x = 0.02, y = 0.31, size = 40)
+
+dev.off()
 
