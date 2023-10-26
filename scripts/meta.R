@@ -70,12 +70,12 @@ for(i in 1:length(datalist)){
     store[i, 18] <- m$I2
     store[i, 19] <- m$QE.LRT
     store[i, 20] <- m$QEp.LRT
-    store[i, 21] <- sqrt(m$tau)
+    store[i, 21] <- m$tau2
     store[i, 22] <- mmod$I2
     store[i, 23] <- mmod$QE.LRT
     store[i, 24] <- mmod$QEp.LRT
-    store[i, 25] <- sqrt(mmod$tau)
-    store[i, 26] <- (sqrt(m$tau2) - sqrt(mmod$tau2)) / sqrt(m$tau2) * 100 # percentage reduction in tau after adding moderator
+    store[i, 25] <- mmod$tau2
+    store[i, 26] <- (mmod$tau2 - m$tau2) / m$tau2 * 100 # percentage reduction in tau^2 after adding moderator
   }
   
 }
