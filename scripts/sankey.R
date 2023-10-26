@@ -79,15 +79,15 @@ for (i in 1:length(factors)){
   
 } 
 
-pltt1 <- c("#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#106aba",
-           "#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#106aba",
+pltt1 <- c("#4169E1", "#4169E1", "#4169E1", "#4169E1", "#4169E1", "#4169E1",
+           "#4169E1", "#4169E1", "#4169E1", "#4169E1", "#4169E1", "#4169E1",
            "#3daaf0", "#3daaf0", "#001d76")
 
-pltt2 <- c("#106aba", "#106aba", "#106aba", "#3daaf0", "#3daaf0", "#3daaf0",
+pltt2 <- c("#4169E1", "#4169E1", "#4169E1", "#3daaf0", "#3daaf0", "#3daaf0",
            "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0", "#3daaf0",
            "#3daaf0", "#3daaf0", "#3daaf0", "#001d76")
 
-pltt3 <- c("#106aba", "#106aba", "#106aba", "#106aba", "#106aba", "#001d76")
+pltt3 <- c("#4169E1", "#4169E1", "#4169E1", "#4169E1", "#4169E1", "#001d76")
 
 # create flow charts for each factor 
 p1 <- dl2[[1]] %>%
@@ -141,8 +141,8 @@ pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participa
 ggdraw() +
   draw_plot(p3, x = -0.182, y = 0.02, height = 0.3, width = 0.761) +
   draw_plot(p2, x = -0.18, y = 0.32, height = 0.7, width = 1.1) +
-  draw_text("A", x = 0.02, y = 0.95, size = 40) +
-  draw_text("B", x = 0.02, y = 0.31, size = 40)
+  draw_text("A", x = 0.02, y = 0.95, size = 40, fontface = "bold") +
+  draw_text("B", x = 0.02, y = 0.31, size = 40, fontface = "bold")
 
 dev.off()
 
