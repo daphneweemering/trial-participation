@@ -1,4 +1,4 @@
-set.seed(10)
+set.seed(39)
 
 generate_data <- function(size, prob_x, prob_y) {
   x <- sample(c("A", "B", "C"), size, prob = prob_x, replace = TRUE)
