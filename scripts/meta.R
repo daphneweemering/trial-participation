@@ -85,7 +85,7 @@ store <- store[order(store[, 'PERC'], decreasing = F), ]
 
 
 #### FIGURE ####
-pdf(file = '/Users/daphneweemering/surfdrive/trial participation/trial-participation/figures/figure4.pdf', 
+pdf(file = '/Users/dweemeri/surfdrive - Weemering, D.N. (Daphne)@surfdrive.surf.nl/trial participation/trial-participation/figures/figure5.pdf',
     width = 11.7, height = 7)
 
 par(mar = c(4.5, 34, 3, 1), tck = -0.01, xpd = T)
@@ -121,3 +121,34 @@ text(x = -25, y = 16, 'Percentage (95% CI)', cex = 1, font = 2)
 
 
 dev.off()
+
+
+
+#### FUNNEL PLOTS ####
+pdf(file = "/Users/dweemeri/surfdrive - Weemering, D.N. (Daphne)@surfdrive.surf.nl/trial participation/trial-participation/figures/suppl-fig.pdf",
+    height = 8, width = 8)
+
+# define titles and y-axis limits for each plot
+pi <- list(
+  list(title = "Relationship with clinical staff", ylim = c(0.5, 0), 
+       ylab = "Logit transformed standard error", xlab = ""),
+  list(title = "Information provided", ylim = c(1.1, 0), ylab = "", xlab = ""),
+  list(title = "Placebo/sham use", ylim = c(1.5, 0), ylab = "Logit transformed standard error",
+       xlab = "Log odds"),
+  list(title = "Side effects", ylim = c(0.75, 0), ylab = "", xlab = "Log odds")  
+)
+
+# create plots for the four highest pooled effect sizes (where k > 2)
+par(mfrow = c(2, 2))
+Map(function(data, info){
+  m <- rma.glmm(xi = N, ni = TOTAL, data = data, measure = 'PLO')
+  funnel(m, ylim = info$ylim, xlab = info$xlab, ylab = info$ylab,
+         back = "grey90", hlines = "grey", main = info$title)
+}, datalist[c(15, 14, 13, 11)], pi[c(1, 2, 3, 4)])
+
+dev.off()
+
+
+
+
+
