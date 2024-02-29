@@ -101,7 +101,7 @@ The creation and maintenance of this research repository are the responsibilitie
 
 
 # Contact 
-You can reach me via e-mail at `d.n.weemering@umcutrecht.nl <mailto:d.n.weemering@umcutrecht.nl>` or Ruben van Eijk (corresponding author) at `r.p.a.vaneijk-2@umcutrecht.nl <mailto:r.p.a.vaneijk-2@umcutrecht.nl>`. 
+You can reach me via e-mail at <d.n.weemering@umcutrecht.nl> or Ruben van Eijk (corresponding author) at <r.p.a.vaneijk-2@umcutrecht.nl>. 
 
 
 
