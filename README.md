@@ -1,8 +1,7 @@
-## Barriers and facilitators of clinical trial participation in neurodegenerative diseases: A systematic review and meta-analysis
+## Trial participation in neurodegenerative diseases: barriers and facilitators. A systematic review and meta-analyses.
 
-**This study is still ongoing. Information on this page may not be correct/finished.**
+This research repository contains all material related to our study *"Trial participation in neurodegenerative diseases: barriers and facilitators. A systematic review and meta-analyses."* published open access in [Neurology](https://www.neurology.org/doi/10.1212/WNL.0000000000209503).
 
-This research repository contains all material related to our study *"Barriers and facilitators of clinical trial participation in neurodegenerative diseases: A systematic review and meta-analysis"*. 
 
 # What's the project about? # 
 There is a pressing need for effective therapies in neurodegenerative diseases, and clinical trials form a key step in the process. However, the proportion of trial participants is low, especially in minority groups. This ultimately leads to limited generalizability and underpowered trial results, both interfering in properly assessing new therapies. By systematically reviewing the literature and employing meta-analyses on created themes, we aimed to identify factors that influence trial participation. By combining a qualitative thematic analysis with a quantitative meta-analysis, we aimed to provide a comprehensive overview of key factors that contribute to trial participation, thereby informing investigators how to better align their recruitment strategies. 
@@ -11,11 +10,12 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 # What is in the repository? #
 | Folder     | Content |
 |:-----------|:-----------------------------------------------------------------------|
-| manuscript | Contains the manuscript `TP.pdf` (to be added).                        |
-| data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`).                                                                   |
-| scripts    | Holds 1) the script required to obtain the meta-analysis results and to create the forest plot (`meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`).                |
-| figures    | Holds the figures that are created.                                                         |
-| review     | Contains all the files related to the systematic review and coding process. `code tree.xlsx` contains all the emerged enablers (themes) and the quotes related to that enabler. `thematic analysis.xlsx` the coding process.                                                                                        |
+| data       | Contains the data required to run the meta-analysis (`meta.xlsx`) and to create the dynamic flow chart (figure 2; `code tree.xlsx`). |
+| figures    | Holds the figures that are available in the manuscript |
+| manuscript | Contains the manuscript `Trial participation in NDD.pdf`. |
+| review     | Contains all the files related to the coding process. `code tree.xlsx` contains all the emerged enablers (themes) and the quotes related to that enabler. `thematic analysis.xlsx` includes the extracted data from the articles and the (initial) coding process. |
+| scripts    | Holds 1) the script required to obtain the results from the meta-analyses, to create the forest plot (figure 4 of manuscript) and the funnel plots (supplement 7) (script: `meta.R`), and 2) the script to create the dynamic flow chart (figure 2; `sankey.R`). |
+| supplementary material | Holds the supplementary material in separate files. |
 
 
 # Machine and package information
@@ -95,11 +95,11 @@ There is a pressing need for effective therapies in neurodegenerative diseases, 
 ```
  
 # Access and permissions
-The creation and maintenance of this research repository are the responsibilities of the author. This archive is completely open access, and can be accessed for an indefinite period.
+The creation and maintenance of this research repository are the responsibilities of the author (Daphne Weemering). This archive is completely open access, and can be accessed for an indefinite period.
+
 
 # Contact 
-To be added. 
-
+You can reach me via email at <d.n.weemering@umcutrecht.nl> or <dnweemering@gmail.com> for questions regarding this repository. For correspondence regarding this article, contact Dr. Ruben van Eijk (corresponding author) at <r.p.a.vaneijk-2@umcutrecht.nl>.
 
 
 
